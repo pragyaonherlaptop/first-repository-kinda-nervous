@@ -1,24 +1,50 @@
-# first-repository-kinda-nervous
-a retro profile page built just by using html and css, no frameworks, no javascript, no ai ♡
-A retro social-profile page that works on desktop and mobile. Built with plain HTML and CSS: no frameworks, no JavaScript.
+<div align="center">
 
-Live site: https://pragyaonherlaptop.github.io/first-repository-kinda-nervous/
+# ✦ first-repository-kinda-nervous ✦
 
-what's inside
-two-column layout with a sticky sidebar (desktop)
-single-column stacked layout (mobile)
-reusable "panel" component with gradient title bars
-scrolling interests box, friends grid, comments section
-postage-stamp photo borders
-whole colour theme controlled from CSS variables
-built with
-HTML5 (semantic tags)
-CSS3 (grid, flexbox, custom properties, media queries)
-run it locally
-Download or clone this repo
-Open the folder in VS Code
-Right-click index.html → Open with Live Server
+*a retro profile page built just by using html and css*
+*no frameworks · no javascript · no ai* ♡
 
-Layout inspired by early-2000s social profile pages. Not affiliated with any social network. All photos are my own.
+**[→ visit the live site ←](https://pragyaonherlaptop.github.io/first-repository-kinda-nervous/)**
 
-made by PRAGYA ♡
+</div>
+
+---
+
+## ✧ about
+
+A retro social-profile page that works on desktop and mobile.
+Built by hand with plain HTML and CSS, and a lot of nervous energy.
+
+## ✧ what's inside
+
+- two-column layout with a sticky sidebar on desktop
+- single-column stacked layout on mobile
+- a reusable "panel" component with gradient title bars
+- scrolling interests box, friends grid and comments section
+- postage-stamp photo borders
+- the whole colour theme controlled from CSS variables
+
+## ✧ built with
+
+| | |
+|---|---|
+| **HTML5** | semantic tags |
+| **CSS3** | grid, flexbox, custom properties, media queries |
+
+## ✧ run it locally
+
+1. Download or clone this repo
+2. Open the folder in VS Code
+3. Right-click `index.html` and choose **Open with Live Server**
+
+## ✧ credits
+
+Layout inspired by early-2000s social profile pages.
+Not affiliated with any social network. All photos are my own.
+
+<div align="center">
+
+made with ♡ by pragya
+
+</div>
