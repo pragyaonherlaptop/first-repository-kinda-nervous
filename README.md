@@ -11,7 +11,7 @@
 
 ---
 
-## ✧ about
+## ✧ About
 
 A retro social-profile page that works on desktop and mobile.
 Built by hand with plain HTML and CSS, and a lot of nervous energy.
