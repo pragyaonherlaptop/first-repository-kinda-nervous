@@ -1,4 +1,12 @@
 /* =========================================================
+   style.css: the ONLY stylesheet (desktop + mobile + fonts + stickers)
+   1. Theme        5. Panels            9. Mobile
+   2. Basics       6. Sidebar panels
+   3. Top bar      7. Main column rows
+   4. Page frame   8. Stickers
+   ========================================================= */
+
+/* =========================================================
    1. THEME: colours, fonts, sizes. Change them here only.
    ========================================================= */
 :root {
@@ -21,8 +29,11 @@
   --soft-line: #e8bfd0;         /* dashed / light pink lines */
   --icon: #e0479e;              /* hot pink icons */
 
-  /* type */
-  --font: Verdana, Geneva, Tahoma, sans-serif;
+  /* fonts */
+  --font: Verdana, Geneva, Tahoma, sans-serif;                    /* body text */
+  --font-display: 'Pacifico', 'Brush Script MT', cursive;         /* name, banner */
+  --font-title: 'Gaegu', 'Comic Sans MS', cursive;                /* titles, labels */
+  --font-hand: 'Caveat', 'Segoe Script', cursive;                 /* quote, comments */
   --size: 11px;
 
   /* misc */
@@ -96,9 +107,9 @@ ul {
 }
 
 .topbar__name {
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
   color: var(--name);
   text-shadow: 1px 1px 0 var(--bar-bottom);
 }
@@ -107,11 +118,14 @@ ul {
    4. PAGE FRAME: sidebar (left) + content (right)
    The background draws the tan strip and the black divider line
    so they run the full height of the page.
+   overflow-x: clip stops stickers near the edge from causing
+   sideways scrolling (and does not break the sticky sidebar).
    ========================================================= */
 .page {
   display: grid;
   grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
   align-items: start;
+  overflow-x: clip;
   background: linear-gradient(
     90deg,
     var(--bg-paper) 0,
@@ -127,39 +141,42 @@ ul {
   top: var(--topbar-height);
   max-height: calc(100vh - var(--topbar-height));
   overflow-y: auto;
-  padding: 14px 15px;
+  padding: 18px 15px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .content {
   min-width: 0;
-  padding: 14px 15px 24px;
+  padding: 18px 15px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 /* =========================================================
    5. PANEL: the one box style used everywhere
+   (overflow stays visible so stickers can hang over the edges)
    ========================================================= */
 .panel {
+  position: relative;
   background: var(--panel-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius) var(--radius) 0 0;
-  overflow: hidden;
 }
 
 .panel__title {
   padding: 3px 10px;
-  font-size: 13px;
-  font-weight: normal;
-  letter-spacing: 0.5px;
+  font-family: var(--font-title);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: var(--bar-text);
   text-shadow: 0 0 2px rgba(150, 70, 110, 0.7);
   background: linear-gradient(var(--bar-top), var(--bar-bottom));
   border-bottom: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
 }
 
 .panel__body {
@@ -169,8 +186,9 @@ ul {
 /* small pink underlined headings used inside panels */
 .interests h3,
 .about h3 {
-  font-size: 10px;
-  font-weight: normal;
+  font-family: var(--font-title);
+  font-size: 14px;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: underline;
   color: var(--link);
@@ -204,7 +222,10 @@ ul {
 }
 
 .profile__info p {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  font-family: var(--font-hand);
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .profile__bottom {
@@ -245,6 +266,7 @@ ul {
   padding: 10px 10px 10px 45%;
   font-size: 10px;
   text-align: center;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
   background:
     radial-gradient(circle, #f7a8d0 1.6px, transparent 2.2px) 10px 12px / 34px 30px,
     radial-gradient(circle, #b9a7f0 1.4px, transparent 2px) 26px 26px / 40px 36px,
@@ -262,6 +284,7 @@ ul {
 
 /* ---- banner row ---- */
 .banner-row {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 200px;
   gap: 10px;
@@ -286,9 +309,10 @@ ul {
 .banner__text {
   position: absolute;
   top: 8px;
-  left: 10px;
-  font-size: 32px;
-  font-weight: bold;
+  left: 12px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 400;
   color: #f7dfe9;
   text-shadow: 0 0 4px rgba(120, 50, 90, 0.8), 1px 1px 0 rgba(120, 50, 90, 0.6);
 }
@@ -335,7 +359,9 @@ ul {
 }
 
 .links__list a {
-  font-size: 10px;
+  font-family: var(--font-title);
+  font-size: 14px;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
@@ -370,7 +396,9 @@ ul {
 
 .friends__grid figcaption {
   margin-bottom: 3px;
-  font-weight: bold;
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 700;
   color: var(--name);
   overflow-wrap: anywhere;
 }
@@ -440,7 +468,8 @@ ul {
 .comment__user strong {
   display: block;
   margin-bottom: 4px;
-  font-style: italic;
+  font-family: var(--font-title);
+  font-size: 15px;
   color: var(--name);
 }
 
@@ -463,6 +492,11 @@ ul {
   color: var(--muted);
 }
 
+.comment__text p {
+  font-family: var(--font-hand);
+  font-size: 19px;
+}
+
 .comment__text blockquote {
   margin: 16px 0 0 16px;
 }
@@ -483,7 +517,7 @@ ul {
   object-fit: cover;
 }
 
-/* ---- optional corner sticker (fixed to the screen corner) ---- */
+/* ---- optional corner character (fixed to the screen corner) ---- */
 .corner-deco {
   position: fixed;
   left: 0;
@@ -494,7 +528,48 @@ ul {
 }
 
 /* =========================================================
-   8. MOBILE (phones and small tablets)
+   8. STICKERS (emoji, PNG or GIF)
+   Put one as the FIRST thing inside a panel, the banner row
+   or the top bar. Position classes:
+     sticker--tr  sticker--tl  sticker--br  sticker--bl  sticker--title
+   Optional: sticker--sm  sticker--lg  sticker--hide-mobile
+   ========================================================= */
+.sticker {
+  position: absolute;
+  z-index: 4;
+  width: 64px;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.sticker--tr { top: -18px;    right: -10px; transform: rotate(12deg); }
+.sticker--tl { top: -18px;    left: -10px;  transform: rotate(-12deg); }
+.sticker--br { bottom: -16px; right: -10px; transform: rotate(-10deg); }
+.sticker--bl { bottom: -16px; left: -10px;  transform: rotate(8deg); }
+.sticker--title { top: -16px; right: 30px;  transform: rotate(6deg); }
+
+.sticker--sm { width: 44px; }
+.sticker--lg { width: 96px; }
+
+/* a sticker made from an emoji instead of an image file */
+.sticker--emoji {
+  width: auto;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.sticker--emoji.sticker--sm { font-size: 24px; }
+.sticker--emoji.sticker--lg { font-size: 52px; }
+
+/* a sticker living in the top bar */
+.topbar .sticker {
+  top: 8px;
+  right: 16px;
+}
+
+/* =========================================================
+   9. MOBILE (phones and small tablets)
    Everything becomes one column and the sticky sidebar is released.
    ========================================================= */
 @media (max-width: 800px) {
@@ -513,8 +588,7 @@ ul {
   }
 
   .topbar__name {
-    font-size: 20px;
-    letter-spacing: 0;
+    font-size: 24px;
   }
 
   .page {
@@ -526,11 +600,15 @@ ul {
     position: static;
     max-height: none;
     overflow: visible;
-    padding: 10px;
+    padding: 14px 10px 10px;
   }
 
   .content {
-    padding: 0 10px 16px;
+    padding: 4px 10px 16px;
+  }
+
+  .panel__title {
+    font-size: 18px;
   }
 
   .profile__top {
@@ -560,12 +638,13 @@ ul {
   }
 
   .banner__text {
-    font-size: 22px;
+    font-size: 26px;
   }
 
   .banner-side,
   .tall-image,
-  .corner-deco {
+  .corner-deco,
+  .sticker--hide-mobile {
     display: none;
   }
 
@@ -589,6 +668,22 @@ ul {
     width: 62px;
     height: 62px;
   }
+
+  .sticker {
+    width: 44px;
+  }
+
+  .sticker--lg {
+    width: 62px;
+  }
+
+  .sticker--emoji {
+    width: auto;
+    font-size: 26px;
+  }
+
+  .sticker--emoji.sticker--sm { font-size: 20px; }
+  .sticker--emoji.sticker--lg { font-size: 38px; }
 }
 
 @media (max-width: 400px) {
