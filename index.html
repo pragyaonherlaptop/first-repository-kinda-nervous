@@ -4,28 +4,227 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>YOUR NAME | Profile</title>
-  <meta name="description" content="Personal profile page of YOUR NAME.">
+  <meta name="description" content="Personal profile page of YOUR NAME, built by hand with HTML and CSS.">
+
+  <!-- Cute fonts from Google Fonts: Pacifico, Gaegu, Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Gaegu:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- All the styling (desktop + mobile) lives in this one file -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="fun.css">
 </head>
 <body>
 
-  <!-- ========== TOP BAR: photo logo + your name ========== -->
+  <!-- ============ TOP BAR: your horizontal photo logo + your name ============ -->
   <header class="topbar">
     <img class="topbar__logo" src="images/logo.jpg" alt="YOUR NAME logo">
     <h1 class="topbar__name">YOUR NAME</h1>
+    <span class="sticker sticker--emoji" aria-hidden="true">&#10024;</span>
   </header>
 
-  <!-- ========== PAGE FRAME: sidebar + main column ========== -->
+  <!-- ============ PAGE FRAME: left sidebar + right main column ============ -->
   <div class="page">
 
-    <!-- ---------- LEFT SIDEBAR ---------- -->
+    <!-- ---------- LEFT SIDEBAR (stays in place on desktop) ---------- -->
     <aside class="sidebar">
 
+      <!-- Profile card -->
       <section class="panel profile">
+        <span class="sticker sticker--emoji sticker--tr" aria-hidden="true">&#127872;</span>
         <h2 class="panel__title">YOUR NAME</h2>
         <div class="panel__body">
-          <img class="profile__photo" src="images/avatar.jpg" alt="Photo of YOUR NAME">
-          <div class="profile__info">
-            <p>"your favourite quote here"</p>
-            <p>contact: your-handle</p>
+          <div class="profile__top">
+            <img class="profile__photo" src="images/avatar.jpg" alt="Photo of YOUR NAME">
+            <div class="profile__info">
+              <p>"your favourite quote here"</p>
+              <p>contact: your-handle</p>
+              <p>Last active:<br>today</p>
+            </div>
+          </div>
+          <div class="profile__bottom">
+            <p>MOOD: super cool</p>
+            <p>VIEW MY: <a href="#about">About</a> | <a href="#blog">Blog</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact box: change these to your real links -->
+      <section class="panel contact">
+        <span class="sticker sticker--emoji sticker--br" aria-hidden="true">&#127800;</span>
+        <h2 class="panel__title">Contact Me</h2>
+        <div class="panel__body">
+          <ul class="contact__list">
+            <li><a href="mailto:you@example.com"><span class="ico" aria-hidden="true">&#9993;</span>Email me</a></li>
+            <li><a href="https://github.com/your-username"><span class="ico" aria-hidden="true">&#9733;</span>GitHub</a></li>
+            <li><a href="https://instagram.com/your-handle"><span class="ico" aria-hidden="true">&#9829;</span>Instagram</a></li>
+            <li><a href="https://linkedin.com/in/your-name"><span class="ico" aria-hidden="true">&#9834;</span>LinkedIn</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Credit box -->
+      <section class="panel credit">
+        <div class="panel__body">
+          <p>made by YOUR NAME with HTML and CSS.</p>
+          <p>Inspired by early-2000s social profiles. Not affiliated with any social network.</p>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- ---------- RIGHT MAIN COLUMN ---------- -->
+    <main class="content">
+
+      <!-- Banner + small side image -->
+      <div class="banner-row">
+        <span class="sticker sticker--emoji sticker--lg sticker--br" aria-hidden="true">&#128150;</span>
+        <figure class="banner">
+          <img src="images/banner.jpg" alt="Banner image">
+          <figcaption class="banner__text">Welcome!</figcaption>
+        </figure>
+        <figure class="banner-side">
+          <img src="images/side.jpg" alt="Side image">
+        </figure>
+      </div>
+
+      <!-- Interests (scroll box) + Links -->
+      <div class="interests-row">
+        <section class="panel interests">
+          <span class="sticker sticker--emoji sticker--title" aria-hidden="true">&#129419;</span>
+          <h2 class="panel__title">Interests</h2>
+          <div class="panel__body interests__scroll">
+            <div class="interests__grid">
+              <article>
+                <h3>General</h3>
+                <p>Write about yourself here. This box scrolls when the text gets long.</p>
+              </article>
+              <article>
+                <h3>Music</h3>
+                <p>Your favourite artists, bands and songs.</p>
+              </article>
+              <article>
+                <h3>Movies</h3>
+                <p>Your favourite movies.</p>
+              </article>
+              <article>
+                <h3>Television</h3>
+                <p>Your favourite shows.</p>
+              </article>
+              <article>
+                <h3>Books</h3>
+                <p>What you are reading.</p>
+              </article>
+              <article>
+                <h3>Heroes</h3>
+                <p>People who inspire you.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel links">
+          <h2 class="panel__title">Links</h2>
+          <div class="panel__body">
+            <ul class="links__list">
+              <li><a href="https://github.com/your-username">GitHub</a><span>github.com/your-username</span></li>
+              <li><a href="https://instagram.com/your-handle">Instagram</a><span>@your-handle</span></li>
+              <li><a href="https://linkedin.com/in/your-name">LinkedIn</a><span>your-name</span></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- Blog + Friends -->
+      <div class="blogfriends-row">
+        <section class="panel blog" id="blog">
+          <h2 class="panel__title">Latest Blog Entries</h2>
+          <div class="panel__body">
+            <p><em>There are no blog entries yet.</em></p>
+          </div>
+        </section>
+
+        <section class="panel friends">
+          <h2 class="panel__title">Friends</h2>
+          <div class="panel__body">
+            <p class="friends__count">YOUR NAME has 8 friends.</p>
+            <ul class="friends__grid">
+              <li><figure><figcaption>Friend 1</figcaption><img src="images/friend1.jpg" alt="Friend 1"></figure></li>
+              <li><figure><figcaption>Friend 2</figcaption><img src="images/friend2.jpg" alt="Friend 2"></figure></li>
+              <li><figure><figcaption>Friend 3</figcaption><img src="images/friend3.jpg" alt="Friend 3"></figure></li>
+              <li><figure><figcaption>Friend 4</figcaption><img src="images/friend4.jpg" alt="Friend 4"></figure></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- About me -->
+      <section class="panel about" id="about">
+        <span class="sticker sticker--emoji sticker--tr" aria-hidden="true">&#10024;</span>
+        <span class="sticker sticker--emoji sticker--bl" aria-hidden="true">&#127800;</span>
+        <h2 class="panel__title">About</h2>
+        <div class="panel__body">
+          <h3>About me:</h3>
+          <p>Write a few lines about who you are.</p>
+          <div class="stamp-row">
+            <img class="stamp" src="images/photo1.jpg" alt="Photo 1">
+            <img class="stamp" src="images/photo2.jpg" alt="Photo 2">
+            <img class="stamp" src="images/photo3.jpg" alt="Photo 3">
+            <img class="stamp" src="images/photo4.jpg" alt="Photo 4">
+          </div>
+          <hr>
+          <h3>Who I'd like to meet:</h3>
+          <p>Write something fun here.</p>
+        </div>
+      </section>
+
+      <!-- Comments + tall side image -->
+      <div class="comments-row">
+        <section class="panel comments">
+          <span class="sticker sticker--emoji sticker--title" aria-hidden="true">&#127872;</span>
+          <h2 class="panel__title">Comments</h2>
+          <div class="panel__body">
+            <p class="comments__count">Displaying 1 of 1 comments</p>
+            <article class="comment">
+              <div class="comment__user">
+                <strong>friend name</strong>
+                <img src="images/friend1.jpg" alt="Friend 1">
+              </div>
+              <div class="comment__text">
+                <time datetime="2026-06-01">5 months ago</time>
+                <p>Nice page!</p>
+                <blockquote>
+                  <p>Thanks!</p>
+                </blockquote>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <figure class="tall-image">
+          <img src="images/tall.jpg" alt="Tall side image">
+        </figure>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       YOUR OWN STICKERS (PNG or GIF)
+       1. Save the picture in the images folder, e.g. images/sticker1.png
+       2. Copy the sample line below and paste it as the FIRST thing inside
+          any panel section (right after its opening section tag)
+       3. Remove the comment marks around the pasted line so it shows up
+       Positions: sticker--tr  sticker--tl  sticker--br  sticker--bl  sticker--title
+       Sizes (optional): sticker--sm  sticker--lg
+       Hide on phones (optional): sticker--hide-mobile
+       ==================================================================== -->
+  <!-- <img class="sticker sticker--tr" src="images/sticker1.png" alt=""> -->
+
+  <!-- OPTIONAL: a character pinned to the bottom-left corner of the screen.
+       Add a transparent PNG named corner.png, then remove the comment
+       marks around the line below. -->
+  <!-- <img class="corner-deco" src="images/corner.png" alt=""> -->
+
+</body>
+</html>
